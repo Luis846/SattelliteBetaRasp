@@ -4,7 +4,7 @@ import time
 from flask import jsonify
 
 def start_measuring():
-    while 1:
+     while 1:
         
         o = sense.get_orientation()
         t = sense.get_temperature()
@@ -48,7 +48,7 @@ def start_measuring():
         print( "Temp: " + str(round(t)) + " F " + " Pressure: " + str(round(p)) + " Millibars " + "Humidity: " + str(h) + "%")
         
         
-        obj = '{"temperature": '+ str(t) + ' , "humidity": '+ str(h) +', "pressure": '+ str(p) +', "pitch": '+ str(pitch) +', "roll": '+ str(roll) +', "yaw": '+ str(yaw) +'}'
+        obj = '{"temperature": '+ str(t) + ' , "humidity": '+ str(h) +', "pressure": '+ str(p) +', "pitch": '+ str(pitch) +', "roll": '+ str(roll) +', "yaw": '+ str(yaw) +', "x_axis": '+str(raw_x) +', "y_axis": '+ str(raw_y) +', "z_axis": '+str(raw_z)+'}'
         
         #ob = jsonify(ob)
         #file = open('platinum.json', 'a')
@@ -60,11 +60,12 @@ def start_measuring():
         
         file = open('platinum.json', 'a')
         #file.write('{ "temperature": '+str(t)+'}')
-        file.write(obj + ',')
+        file.write(obj + ',')  
         file.close()
-        
-        
-        time.sleep(5)
-    
+        time.sleep(15)
 
-  
+#start_measuring()
+
+        
+
+     
